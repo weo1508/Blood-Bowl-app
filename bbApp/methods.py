@@ -251,19 +251,14 @@ def countRows(table):
         mydb.close()
 
 def countdown(initial_seconds, countdown_placeholder):
-    total_seconds = initial_seconds
+    st.set_page_config()
 
-    while total_seconds > 0:
-        m = total_seconds // 60
-        s = total_seconds % 60
-        if s < 10:
-            s = "0" + str(s)
-
-        countdown_placeholder.markdown(f"<h1 style='text-align: center; color: green;'>{m}:{s}</h1>",
-                                       unsafe_allow_html=True)
+    ph = st.empty()
+    N = 5*60
+    for secs in range(N,0,-1):
+        mm, ss = secs//60, secs%60
+        ph.metric("Countdown", f"{mm:02d}:{ss:02d}")
         time.sleep(1)
-
-    countdown_placeholder.markdown("<h1 style='text-align: center; color: red;'>TIMES UP</h1>", unsafe_allow_html=True)
 
 
 #debug tool method
