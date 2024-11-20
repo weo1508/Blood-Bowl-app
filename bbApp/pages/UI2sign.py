@@ -44,5 +44,6 @@ if gotoNext:
         else:
             if 'accountName' not in st.session_state:
                 st.session_state['accountName'] = name
+            st.session_state.accountName = name
             m.sign(name, password, gotoNext)
 
