@@ -55,14 +55,14 @@ function startTimer(duration, display) {
 }
 
 window.onload = function () {
-    var fiveMinutes = 60 * 5,
+    var threeMinutes = 60 * 3,
         display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
+    startTimer(threeMinutes, display);
 };
 </script>
 
 <body>
-  <div>Registration closes in <span id="time">05:00</span> minutes!</div>
+  <div><span id="time">03:00</span></div>
 </body>
 """
 
