@@ -250,7 +250,7 @@ def countRows(table):
         mycursor.close()
         mydb.close()
 
-def countdown(initial_seconds, countdown_placeholder):
+def countdown():
     st.set_page_config()
 
     ph = st.empty()
