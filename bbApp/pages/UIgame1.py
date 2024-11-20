@@ -34,7 +34,26 @@ st.subheader("Timer")
 
 
 # https://www.udacity.com/blog/2021/09/create-a-timer-in-python-step-by-step-guide.html
-m.countDown()
+countdown_placeholder = st.empty()
+initial_seconds = 180
+countdown_placeholder.markdown(f"<h1 style='text-align: center; color: green;'>3:00</h1>", unsafe_allow_html=True)
+
+total_seconds = initial_seconds
+running = False
+
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("Start", use_container_width=True):
+        if not running:
+            running = True
+            m.countdown()
+
+with col2:
+    if st.button("Reset", use_container_width=True):
+        running = False
+        total_seconds = initial_seconds
+        countdown_placeholder.markdown(f"<h1 style='text-align: center; color: green;'>3:00</h1>",unsafe_allow_html=True)
 
 st.text("")
 st.subheader("View Stats")
