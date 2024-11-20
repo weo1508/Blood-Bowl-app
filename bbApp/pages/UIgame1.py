@@ -5,6 +5,7 @@
 
 import streamlit as st
 import methods as m
+from streamlit.components.v1 import html
 
 st.set_page_config(page_title= 'UIgame1', layout="wide", initial_sidebar_state="collapsed", menu_items=None)
 
@@ -34,26 +35,39 @@ st.subheader("Timer")
 
 
 # https://www.udacity.com/blog/2021/09/create-a-timer-in-python-step-by-step-guide.html
-countdown_placeholder = st.empty()
-initial_seconds = 180
-countdown_placeholder.markdown(f"<h1 style='text-align: center; color: green;'>3:00</h1>", unsafe_allow_html=True)
+my_html = """
+<script>
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
 
-total_seconds = initial_seconds
-running = False
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-col1, col2 = st.columns(2)
+        display.textContent = minutes + ":" + seconds;
 
-with col1:
-    if st.button("Start", use_container_width=True):
-        if not running:
-            running = True
-            m.countdown()
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
 
-with col2:
-    if st.button("Reset", use_container_width=True):
-        running = False
-        total_seconds = initial_seconds
-        countdown_placeholder.markdown(f"<h1 style='text-align: center; color: green;'>3:00</h1>",unsafe_allow_html=True)
+window.onload = function () {
+    var fiveMinutes = 60 * 5,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+</script>
+
+<body>
+  <div>Registration closes in <span id="time">05:00</span> minutes!</div>
+</body>
+"""
+
+html(my_html)
+
 
 st.text("")
 st.subheader("View Stats")
