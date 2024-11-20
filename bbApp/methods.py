@@ -251,8 +251,6 @@ def countRows(table):
         mydb.close()
 
 def countdown():
-    st.set_page_config()
-
     ph = st.empty()
     N = 5*60
     for secs in range(N,0,-1):
