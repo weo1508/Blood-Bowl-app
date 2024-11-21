@@ -20,7 +20,7 @@ st.markdown(
 )
 
 st.text("Blood Bowl · " + str(st.session_state.currentPin))
-st.subheader(str(st.session_state.currentPin) + " · " + str(st.session_state.currentName))
+st.subheader(str(st.session_state.currentPin) + " · " + str(st.session_state.playerName))
 
 st.columns([1,1], gap="small", vertical_alignment="top")
 col1, col2 = st.columns(2)
