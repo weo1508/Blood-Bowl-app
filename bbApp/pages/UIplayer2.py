@@ -33,7 +33,7 @@ role = m.getFromDb(st.session_state.currentPin, "accountName", st.session_state.
 
 if role == "A":
     adminName = m.getFromDb(st.session_state.currentPin, "accountName", st.session_state.accountName, "name")
-    st.text("detected that you are admin, confirm your mame:")
+    st.text("detected that you are admin, confirm your name:")
     confirm = st.button(str(adminName), use_container_width=True)
     m.nextPage(confirm, "UIplayer3")
 else:
