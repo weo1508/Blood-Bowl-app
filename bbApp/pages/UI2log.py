@@ -28,8 +28,8 @@ password = str(st.text_input("type in password here"))
 
 gotoNext = st.button("LOG IN")
 
+name = m.log(name, password, gotoNext)
 
 if 'accountName' not in st.session_state:
     st.session_state.accountName = name
 st.session_state.accountName = name
-name = m.log(name, password, gotoNext)
