@@ -37,8 +37,13 @@ with col1:
     for i in range(16):
         player = m.getFromDb(st.session_state.currentPin, "accountName", st.session_state.accountName, "p" + str(i+1))
         if player is None:
-            st.text("no selection")
-            break
+            if i == 0:
+                st.text("no selection")
+                break
+            else:
+                break
+        else:
+            st.text(str(player))
 
 with col2:
     st.markdown("<h5 style='text-align: left;'>Fan</h1>", unsafe_allow_html=True)
