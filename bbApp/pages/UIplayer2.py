@@ -38,6 +38,7 @@ if role == "A":
     m.nextPage(confirm, "UIplayer3")
 else:
     selectName = st.selectbox("select name", names, index=0, placeholder="pick your name", label_visibility="hidden")
-    m.updateDb(st.session_state.currentPin, "accountName", st.session_state.accountName, "name", selectName)
     confirm = st.button("confirm", use_container_width=True)
-    m.nextPage(confirm, "UIplayer3")
+    if confirm:
+        m.updateDb(st.session_state.currentPin, "accountName", st.session_state.accountName, "name", selectName)
+        m.nextPage(confirm, "UIplayer3")
