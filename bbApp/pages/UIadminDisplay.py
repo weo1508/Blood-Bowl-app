@@ -43,6 +43,8 @@ with col1:
         if player is None and i == 0:
             st.text("no selection")
             break
+        else if player is None and i != 0:
+            break
         else:
             st.text(str(player))
 
