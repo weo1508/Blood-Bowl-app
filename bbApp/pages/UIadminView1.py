@@ -38,7 +38,7 @@ for i in range(rows-1):
         if 'viewPin' not in st.session_state:
             st.session_state['viewPin'] = pins[i]
         st.session_state.viewPin = pins[i]
-        check = m.getFromDb(st.session_state.viewPin, "accountName", "role")
+        check = m.getFromDb(st.session_state.viewPin, "accountName", st.session_state.accountName, "role")
         if check = "A":
             m.nextPage(viewChoice, "UIadminView2")
         else:
