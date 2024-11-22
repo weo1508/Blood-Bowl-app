@@ -38,7 +38,11 @@ for i in range(rows-1):
         if 'viewPin' not in st.session_state:
             st.session_state['viewPin'] = pins[i]
         st.session_state.viewPin = pins[i]
-        m.nextPage(viewChoice, "UIadminView2")
+        check = m.getFromDb(st.session_state.viewPin, "accountName", "role")
+        if check = "A":
+            m.nextPage(viewChoice, "UIadminView2")
+        else:
+            st.write("You are not the admin of this game.")
 
 st.text("")
 back = st.button(label="back", key=None, on_click=None, use_container_width=False)
