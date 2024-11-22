@@ -43,6 +43,8 @@ with col1:
         if player is None:
             st.text("no selection")
             break
+        else:
+            st.text(str(player))
 
 with col2:
     st.markdown("<h5 style='text-align: left;'>Fan</h1>", unsafe_allow_html=True)
