@@ -33,7 +33,7 @@ st.text("")
 st.subheader("General Function")
 join = st.button(label="Join Game", key=None, on_click=None, use_container_width=False)
 
-m.createPin(create, "UIadminWarning")
+m.nextPage(create, "UIadminWarning")
 m.nextPage(view, "UIadminView1")
 
 m.nextPage(join, "UIgamePin")
