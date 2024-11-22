@@ -31,7 +31,7 @@ rows = m.countRows("track")
 
 fetch = m.getTableFromDb("track")
 
-for i in range(rows-1):
+for i in range(rows):
     pins.append(fetch[i][0])
     viewChoice = st.button(label=str(pins[i]), key="name" + str(i), on_click=None, use_container_width=True)
     if viewChoice:
