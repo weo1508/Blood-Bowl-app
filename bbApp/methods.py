@@ -149,7 +149,6 @@ def UIadmin2PassCheck(roles):
     for i in range(len(roles)):
         if roles[i] == "A":
             flag += 1
-            break
     if flag == 1:
         passCheck = True
     return passCheck
