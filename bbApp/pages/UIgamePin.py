@@ -28,6 +28,9 @@ if gotoNext:
     if len(inputPin) == 7 and inputPin[3] == "-":
         check = m.checkPin(inputPin)
         if check == True:
+            if 'currentPin' not in st.session_state:
+                st.session_state.currentPin = inputPin
+            st.session_state.currentPin = inputPin
             m.nextPage(gotoNext, "UIplayer2")
         else:
             message = "wrong pin, please reenter"
