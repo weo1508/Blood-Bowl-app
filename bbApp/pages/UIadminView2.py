@@ -25,11 +25,12 @@ st.text("Blood Bowl · admin version")
 st.subheader("Choose a player to view:")
 st.text("")
 
-playerNum = m.getFromDb("track", "pin", st.session_state.currentPin, "playerNum")
+playerNum = m.getFromDb("track", "pin", st.session_state.viewPin, "playerNum")
 
-fetch = m.getTableFromDb(st.session_state.currentPin)
+fetch = m.getTableFromDb(st.session_state.viewPin)
 if 'table' not in st.session_state:
     st.session_state['table'] = fetch
+st.session_state['table'] = fetch
 
 names = []
 
