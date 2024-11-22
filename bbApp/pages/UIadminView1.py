@@ -27,7 +27,7 @@ st.text("")
 
 pins = []
 rows = m.countRows("track")
-st.write(rows)
+#st.write(rows)
 
 fetch = m.getTableFromDb("track")
 
