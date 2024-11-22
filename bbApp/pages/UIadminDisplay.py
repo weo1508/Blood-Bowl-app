@@ -40,11 +40,12 @@ with col1:
     st.markdown("<h5 style='text-align: left;'>Players</h1>", unsafe_allow_html=True)
     for i in range(16):
         player = m.getFromDb(st.session_state.viewPin, "name", st.session_state.viewName, "p" + str(i+1))
-        if player is None and i == 0:
-            st.text("no selection")
-            break
-        else if player is None and i != 0:
-            break
+        if player is None:
+            if i == 0:
+                st.text("no selection")
+                break
+            else:
+                break
         else:
             st.text(str(player))
 
