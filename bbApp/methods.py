@@ -12,7 +12,11 @@ import mysql.connector
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 
+'''
+connect to a remote mysql database
 
+return: database that stores all game information
+'''
 def dbConnection():
     return mysql.connector.connect(
         host="sql12.freesqldatabase.com",
@@ -22,6 +26,9 @@ def dbConnection():
         database="sql12740146"
     )
 
+'''
+create the initial tables that are needed for the game in the database
+'''
 def dbSetup():
     mydb = dbConnection()
     mycursor = mydb.cursor()
@@ -38,16 +45,35 @@ def dbSetup():
 
 dbSetup()
 
+'''
+click a button and go to the next page
+
+buttonName (str): button that is being clicked to switch page
+nextName (str): name of page that is being switched to
+'''
 def nextPage(buttonName, nextName):
     if buttonName:
         switch_page(nextName)
 
+'''
+display error message when a button is clicked and some condition are not met
 
+buttonName (str): button that is being clicked to switch page
+message (str): error message displayed
+'''
 def errorMessage(buttonName, message):
     if buttonName:
         st.text(message)
 
+'''
+login function of the game, user can use existing account to enter the game
 
+name (str): account name entered by user
+password (str): password entered by user
+gotoNext (str): the button that is used to go to next page when login information is verified
+
+return (str): account name of current user
+'''
 def log(name, passwordIn, gotoNext):
     mydb = dbConnection()
     mycursor = mydb.cursor()
@@ -75,7 +101,15 @@ def log(name, passwordIn, gotoNext):
 
     return name
 
+'''
+sign up function of the game, user can use create new account
 
+name (str): account name entered by user
+password (str): password entered by user
+gotoNext (str): the button that is used to go to next page when sign up information is checked and saved
+
+return name (str): account name of current user
+'''
 def sign(name, password, gotoNext):
     mydb = dbConnection()
     mycursor = mydb.cursor()
@@ -94,7 +128,13 @@ def sign(name, password, gotoNext):
     nextPage(gotoNext, "UI3")
     return name
 
+'''
+cheking if the game pin user has entered is valid
 
+currentPin (str): the game pin user has entered
+
+return check (bool): if game pin entered matches one in database
+'''
 def checkPin(currentPin):
     mydb = dbConnection()
     mycursor = mydb.cursor()
@@ -119,7 +159,9 @@ def checkPin(currentPin):
             return check
     return check
 
-
+'''
+generating a game pin for new game, creating a table for the new game in databse
+'''
 def pinGenerator():
     gamePin = str(random.randint(100, 999)) + '-' + str(random.randint(100, 999))
     if 'currentPin' not in st.session_state:
@@ -137,12 +179,24 @@ def pinGenerator():
         mycursor.close()
         mydb.close()
 
+'''
+create pin when user click a button, using the pinGenerator and switch_page function
 
+buttonName (str): button that is being clicked to switch page
+nextName (str): name of page that is being switched to
+'''
 def createPin(buttonName, nextName):
     if buttonName:
         pinGenerator()
         switch_page(nextName)
 
+'''
+checking if the user is admin or player according to information stored in database
+
+roles (array): array stores A or P values indicating admin or player
+
+return passCheck (bool): if there is more than one A, returns false, else returns true
+'''
 def UIadmin2PassCheck(roles):
     passCheck = False
     flag = 0
@@ -153,7 +207,13 @@ def UIadmin2PassCheck(roles):
         passCheck = True
     return passCheck
 
+'''
+add item to table in tatabase 
 
+table (str): name of the table in database
+columns (array): names of the columns the items are being added to
+items (array): values that are being added to columns
+'''
 def addToDb(table, columns, items):
     mydb = dbConnection()
     mycursor = mydb.cursor()
@@ -167,7 +227,15 @@ def addToDb(table, columns, items):
         mycursor.close()
         mydb.close()
 
+'''
+upadate item in table in database, using value in another item as the condition
 
+table (str): name of the table being updated
+column (str): name of the column being updated
+new: new value to replace the old value
+condition (str): name of the column that serves as the condition of checking which row to update
+conditionValue: value in the condition column to locate specific row
+'''
 def updateDb(table, column, new, condition, conditionValue):
     mydb = dbConnection()
     mycursor = mydb.cursor()
@@ -179,6 +247,11 @@ def updateDb(table, column, new, condition, conditionValue):
         mycursor.close()
         mydb.close()
 
+'''
+fetch data from table in databse
+
+table (str): name of the table 
+'''
 def getFromDb(table, refColumn, refValue, targetColumn):
     mydb = dbConnection()
     mycursor = mydb.cursor()
