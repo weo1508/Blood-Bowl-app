@@ -77,15 +77,16 @@ if 'timerState' not in st.session_state:
     st.session_state.timerState = "initial"
 st.session_state.timerState = "initial"
 
-if st.session_state.timerState == "initial":
+while st.session_state.timerState == "initial":
     startTimer = st.button(label="Start Timer", key=None, on_click=None, use_container_width=True)
-    if startTimer:
-        st.session_state.timerState = "started"
-        html(my_html)
-elif st.session_state.timerState == "started":
-    resetTimer = st.button(label="Reset Timer", key=None, on_click=None, use_container_width=True)
-    if reserTimer:
-        st.session_state.timerState = "initial"
+    
+if startTimer:
+    st.session_state.timerState = "started"
+    html(my_html)
+    if st.session_state.timerState == "started":
+        resetTimer = st.button(label="Reset Timer", key=None, on_click=None, use_container_width=True)
+        if reserTimer:
+            st.session_state.timerState = "initial"
 
 
 st.text("")
