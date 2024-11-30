@@ -73,14 +73,10 @@ window.onload = function () {
 </body>
 """
 
-# Display the timer HTML
-st.markdown(my_html, unsafe_allow_html=True)
-
-# Reset button
-reset = st.button(label="Reset Timer")
+html(my_html)
+reset = st.button(label="Reset Timer", key=None, on_click=None, use_container_width=True)
 if reset:
-    # Rerun the app to reset the timer
-    st.experimental_rerun()
+    m.nextPage(reset, "UIgame1")
 
 
 st.text("")
