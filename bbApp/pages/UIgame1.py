@@ -73,35 +73,14 @@ window.onload = function () {
 </body>
 """
 
-# Initialize session state
-if "show_start" not in st.session_state:
-    st.session_state.show_start = True  # Show Start button initially
+# Display the timer HTML
+st.markdown(my_html, unsafe_allow_html=True)
 
-if "timer_reset" not in st.session_state:
-    st.session_state.timer_reset = False  # Track if reset has been clicked
-
-# Function to start the timer
-def start_timer():
-    st.session_state.show_start = False  # Hide Start button
-
-# Function to reset the timer
-def reset_timer():
-    st.session_state.timer_reset = True  # Trigger reset logic
-
-# Render the buttons
-if st.session_state.show_start:
-    if st.button("Start Timer"):
-        start_timer()
-else:
-    st.markdown(my_html, unsafe_allow_html=True)  # Display the timer
-    if st.button("Reset Timer"):
-        reset_timer()
-
-# Logic for reset
-if st.session_state.timer_reset:
-    # Re-render the HTML to restart the timer
-    st.session_state.timer_reset = False
-    st.markdown(my_html, unsafe_allow_html=True)
+# Reset button
+reset = st.button(label="Reset Timer")
+if reset:
+    # Rerun the app to reset the timer
+    st.experimental_rerun()
 
 
 st.text("")
