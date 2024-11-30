@@ -64,10 +64,10 @@ window.onload = function () {
 <body>
   <style>
     #time {
-        font-family: 'Calibri';
+        font-family: 'Calibri', sans-serif;
         font-size: xxx-large;
         color: #3CB043;
-        text-align: center;
+        text-align: centre;
     }
   </style>
   <div><span id="time">03:00</span></div>
