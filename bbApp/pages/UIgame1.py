@@ -6,6 +6,7 @@
 import streamlit as st
 import methods as m
 from streamlit.components.v1 import html
+import time
 
 st.set_page_config(page_title= 'UIgame1', layout="wide", initial_sidebar_state="collapsed", menu_items=None)
 
