@@ -64,16 +64,28 @@ window.onload = function () {
 <body>
   <style>
     #time {
-        font-size: xx-large;
+        font-size: xxxx-large;
         color: #3CB043;
-        text-align: left;
+        text-align: center;
     }
   </style>
   <div><span id="time">03:00</span></div>
 </body>
 """
 
-html(my_html)
+if 'timerState' not in st.session_state:
+    st.session_state.timerState = "initial"
+st.session_state.accountName = "initial"
+
+if st.session_state.accountName == "initial":
+    startTimer = st.button(label="Start Timer", key=None, on_click=None, use_container_width=True)
+
+if startTimer:
+    st.session_state.accountName = "started"
+    html(my_html)
+
+if st.session_state.accountName == "started":
+    resetTimer = st.button(label="Start Timer", key=None, on_click=None, use_container_width=True)
 
 
 st.text("")
