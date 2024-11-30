@@ -64,7 +64,7 @@ window.onload = function () {
 <body>
   <style>
     #time {
-        font-size: 100px;
+        font-size: xx-large;
         color: #3CB043;
         text-align: left;
     }
