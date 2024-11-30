@@ -75,7 +75,7 @@ window.onload = function () {
 
 if 'timerState' not in st.session_state:
     st.session_state.timerState = "initial"
-st.session_state.accountName = "initial"
+st.session_state.timerState = "initial"
 
 if st.session_state.timerState == "initial":
     startTimer = st.button(label="Start Timer", key=None, on_click=None, use_container_width=True)
@@ -86,6 +86,7 @@ if startTimer:
 
 if st.session_state.timerState == "started":
     resetTimer = st.button(label="Reset Timer", key=None, on_click=None, use_container_width=True)
+    html(my_html)
 
 
 st.text("")
