@@ -67,7 +67,7 @@ window.onload = function () {
         font-family: 'Calibri', sans-serif;
         font-size: xxx-large;
         color: #3CB043;
-        text-align: centre;
+        text-align: center;
     }
   </style>
   <div><span id="time">03:00</span></div>
