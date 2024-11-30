@@ -74,9 +74,6 @@ window.onload = function () {
 """
 
 html(my_html)
-reset = st.button(label="Reset Timer", key=None, on_click=None, use_container_width=True)
-if reset:
-    m.nextPage(reset, "UIgame1")
 
 
 st.text("")
