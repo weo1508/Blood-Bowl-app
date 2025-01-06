@@ -36,7 +36,7 @@ with col1:
 with col2:
     set = m.getFromDb(st.session_state.currentPin, "accountName", st.session_state.accountName, "allSet")
     if  set == 0:
-        st.markdown("<h6 style='text-align: center;'>Set up your own stats before starting</h1>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center;'>Set up your own statistics before starting</h1>", unsafe_allow_html=True)
     else:
         start = st.button("start game", use_container_width=True)
         m.nextPage(start, "UIgame1")
