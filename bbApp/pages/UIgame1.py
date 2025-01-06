@@ -78,7 +78,7 @@ html(my_html)
 
 
 st.text("")
-st.subheader("View Stats")
+st.subheader("View Statistics")
 view = st.button(label="Click to View", key=None, on_click=None, use_container_width=True)
 m.nextPage(view, "UIgame2")
 
