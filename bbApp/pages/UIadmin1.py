@@ -27,7 +27,7 @@ st.text("")
 
 st.subheader("Admin Functions")
 create = st.button(label="Creat New Game", key=None, on_click=None, use_container_width=False)
-view = st.button(label="View Player Stats", key=None, on_click=None, use_container_width=False)
+view = st.button(label="View Player Statistics", key=None, on_click=None, use_container_width=False)
 
 st.text("")
 st.subheader("General Function")
