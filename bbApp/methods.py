@@ -10,7 +10,8 @@ import time
 import random
 import mysql.connector
 import streamlit as st
-from streamlit_extras.switch_page_button import switch_page
+import streamlit_extras
+#from streamlit_extras.switch_page_button import switch_page
 
 '''
 connect to a remote mysql database
