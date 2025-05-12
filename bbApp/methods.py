@@ -19,11 +19,11 @@ return: database that stores all game information
 '''
 def dbConnection():
     return mysql.connector.connect(
-        host="sql12.freesqldatabase.com",
-        user="sql12740146",
-        password="q3knMTiDxF",
+        host="sql7.freesqldatabase.com",
+        user="sql7778289",
+        password="Ev2p8D9fzN",
         auth_plugin='mysql_native_password',
-        database="sql12740146"
+        database="sql7778289"
     )
 
 '''
