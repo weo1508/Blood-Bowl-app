@@ -53,7 +53,7 @@ nextName (str): name of page that is being switched to
 '''
 def nextPage(buttonName, nextName):
     if buttonName:
-        switch_page(nextName)
+        st.session_state.page = nextName
 
 '''
 display error message when a button is clicked and some condition are not met
