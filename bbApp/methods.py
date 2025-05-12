@@ -10,8 +10,7 @@ import time
 import random
 import mysql.connector
 import streamlit as st
-import streamlit_extras as ex
-#from streamlit_extras.switch_page_button import switch_page
+from streamlit_extras.switch_page_button import switch_page
 
 '''
 connect to a remote mysql database
@@ -54,7 +53,7 @@ nextName (str): name of page that is being switched to
 '''
 def nextPage(buttonName, nextName):
     if buttonName:
-        ex.switch_page_button.__init__.switch_page(nextName)
+        switch_page(nextName)
 
 '''
 display error message when a button is clicked and some condition are not met
