@@ -54,7 +54,7 @@ nextName (str): name of page that is being switched to
 '''
 def nextPage(buttonName, nextName):
     if buttonName:
-        ex.switch_page(nextName)
+        ex.switch_page_button.switch_page(nextName)
 
 '''
 display error message when a button is clicked and some condition are not met
