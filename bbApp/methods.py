@@ -33,7 +33,7 @@ def dbSetup():
     mydb = dbConnection()
     mycursor = mydb.cursor()
     try:
-        mycursor.execute("CREATE DATABASE IF NOT EXISTS sql12740146")
+        mycursor.execute("CREATE DATABASE IF NOT EXISTS sql7778289")
         mycursor.execute("CREATE TABLE IF NOT EXISTS login (accountName VARCHAR(20), password VARCHAR(20))")
         mycursor.execute("CREATE TABLE IF NOT EXISTS track (pin VARCHAR(7), playerNum TINYINT NOT NULL)")
         mycursor.execute("SHOW TABLES")
