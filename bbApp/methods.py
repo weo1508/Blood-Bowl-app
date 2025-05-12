@@ -10,7 +10,7 @@ import time
 import random
 import mysql.connector
 import streamlit as st
-import streamlit_extras
+import streamlit_extras as ex
 #from streamlit_extras.switch_page_button import switch_page
 
 '''
@@ -54,7 +54,7 @@ nextName (str): name of page that is being switched to
 '''
 def nextPage(buttonName, nextName):
     if buttonName:
-        switch_page(nextName)
+        ex.switch_page(nextName)
 
 '''
 display error message when a button is clicked and some condition are not met
