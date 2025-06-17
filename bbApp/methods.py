@@ -19,11 +19,11 @@ return: database that stores all game information
 '''
 def dbConnection():
     return mysql.connector.connect(
-        host="sql7.freesqldatabase.com",
-        user="sql7778289",
-        password="Ev2p8D9fzN",
+        host="sql12.freesqldatabase.com",
+        user="sql12785322",
+        password="CqsCnDYfPM",
         auth_plugin='mysql_native_password',
-        database="sql7778289"
+        database="sql12785322"
     )
 
 '''
@@ -33,7 +33,7 @@ def dbSetup():
     mydb = dbConnection()
     mycursor = mydb.cursor()
     try:
-        mycursor.execute("CREATE DATABASE IF NOT EXISTS sql7778289")
+        mycursor.execute("CREATE DATABASE IF NOT EXISTS sql12785322")
         mycursor.execute("CREATE TABLE IF NOT EXISTS login (accountName VARCHAR(20), password VARCHAR(20))")
         mycursor.execute("CREATE TABLE IF NOT EXISTS track (pin VARCHAR(7), playerNum TINYINT NOT NULL)")
         mycursor.execute("SHOW TABLES")
